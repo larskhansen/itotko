@@ -1,0 +1,47 @@
+uuid: 891372b6-74ec-430f-80d1-6afa0c942219
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:85092c76-6f3c-486e-825e-a479afa688ba'
+  module:
+    - block_content
+    - ctools
+    - node
+    - system
+  theme:
+    - bartik
+id: informationomsession
+theme: bartik
+region: sidebar_second
+weight: -7
+provider: null
+plugin: 'block_content:85092c76-6f3c-486e-825e-a479afa688ba'
+settings:
+  id: 'block_content:85092c76-6f3c-486e-825e-a479afa688ba'
+  label: 'Information om session'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      appointment: appointment
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      appointment: appointment
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '/aftale/*'
+    negate: false
+    context_mapping: {  }

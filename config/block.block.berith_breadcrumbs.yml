@@ -1,0 +1,22 @@
+uuid: a98f6002-04ad-476c-9f16-fe17d8321b43
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - berith
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: berith_breadcrumbs
+theme: berith
+region: meta_header
+weight: -1
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

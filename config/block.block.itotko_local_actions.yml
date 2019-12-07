@@ -1,0 +1,20 @@
+uuid: 1f125024-d34a-40ef-9172-f7253d8cafc3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - itotko
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: itotko_local_actions
+theme: itotko
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

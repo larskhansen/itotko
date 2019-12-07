@@ -1,0 +1,21 @@
+uuid: faabed34-45c8-4de6-8322-cdbb7fcc75bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.appointment.field_date
+    - node.type.appointment
+  module:
+    - user
+id: node.appointment.default
+targetEntityType: node
+bundle: appointment
+mode: default
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_date: true

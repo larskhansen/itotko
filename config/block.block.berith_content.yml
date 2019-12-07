@@ -1,0 +1,22 @@
+uuid: 76b974f3-211d-4f2b-a489-3b91540d9f7a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - berith
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: berith_content
+theme: berith
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

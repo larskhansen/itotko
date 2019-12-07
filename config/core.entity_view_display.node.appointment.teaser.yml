@@ -1,0 +1,22 @@
+uuid: 10f47f8a-15a6-4ad4-abb9-e4743daae490
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.appointment.field_date
+    - node.type.appointment
+  module:
+    - user
+id: node.appointment.teaser
+targetEntityType: node
+bundle: appointment
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_date: true

@@ -1,0 +1,22 @@
+uuid: 6a4f69c6-abae-495a-9351-632a356f6a8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - itotko
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: itotko_help
+theme: itotko
+region: content
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

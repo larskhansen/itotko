@@ -1,0 +1,46 @@
+uuid: 3ee5d3b7-55d0-4c4c-a8ff-b7fb28e953c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.registrate_appointment
+  module:
+    - ctools
+    - node
+    - system
+    - webform
+  theme:
+    - bartik
+id: webform
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Book tidspunkt.'
+  provider: webform
+  label_display: visible
+  webform_id: registrate_appointment
+  default_data: ''
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      appointment: appointment
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      appointment: appointment
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '/aftale/*'
+    negate: false
+    context_mapping: {  }

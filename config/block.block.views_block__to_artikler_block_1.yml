@@ -1,0 +1,30 @@
+uuid: 561736e0-5027-4bbc-a480-d6275c6579a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.to_artikler
+  module:
+    - system
+    - views
+  theme:
+    - berith
+id: views_block__to_artikler_block_1
+theme: berith
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:to_artikler-block_1'
+settings:
+  id: 'views_block:to_artikler-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /jeg-tilbyder
+    negate: false
+    context_mapping: {  }

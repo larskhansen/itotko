@@ -1,0 +1,20 @@
+uuid: 0eb4153c-c2bd-4dcf-9c13-c2e19a096ec6
+langcode: en
+status: true
+dependencies:
+  theme:
+    - itotko
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: itotko_page_title
+theme: itotko
+region: content
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
