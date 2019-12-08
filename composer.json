@@ -12,6 +12,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:larskhansen/itotko_theme.git"
         }
     ],
     "require": {
@@ -30,7 +34,8 @@
         "drupal/webform": "^5.4",
         "drupal/zurb_foundation": "^6.0",
         "drush/drush": "^9.0.0",
-        "drupal/admin_toolbar": "^1.27"
+        "drupal/admin_toolbar": "^1.27",
+        "larskhansen/itotko_theme": "dev-master"
     },
     "require-dev": {
     },
