@@ -3462,15 +3462,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larskhansen/itotko_theme.git",
-                "reference": "15c1340f5c7150d907d9d7f998c7410c81b9da09"
+                "reference": "d10d1ca9f471e825a6fcd51ba4e69f2af10195c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larskhansen/itotko_theme/zipball/15c1340f5c7150d907d9d7f998c7410c81b9da09",
-                "reference": "15c1340f5c7150d907d9d7f998c7410c81b9da09",
+                "url": "https://api.github.com/repos/larskhansen/itotko_theme/zipball/d10d1ca9f471e825a6fcd51ba4e69f2af10195c6",
+                "reference": "d10d1ca9f471e825a6fcd51ba4e69f2af10195c6",
                 "shasum": ""
             },
-            "type": "drupal-theme",
+            "type": "drupal-custom-theme",
             "license": [
                 "GPL-2.0+"
             ],
@@ -3490,7 +3490,7 @@
                 "source": "https://github.com/larskhansen/itotko_theme/tree/master",
                 "issues": "https://github.com/larskhansen/itotko_theme/issues"
             },
-            "time": "2019-12-08T06:12:16+00:00"
+            "time": "2019-12-08T06:17:04+00:00"
         },
         {
             "name": "league/container",
