@@ -1,5 +1,4 @@
 #! groovy
-@Library('frontend-dscrum')
 
 // general vars
 def DOCKER_REPO = "larskhansen"
