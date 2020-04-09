@@ -46,7 +46,7 @@ pipeline {
 
           artyServer.publishBuildInfo buildInfo_www
 
-          docker rmi ${DOCKER_REPO}/${PRODUCT}-www-${BRANCH}:${currentBuild.number}
+          //docker rmi ${DOCKER_REPO}/${PRODUCT}-www-${BRANCH}:${currentBuild.number}
         }
       }
     }
