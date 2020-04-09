@@ -13,7 +13,7 @@ def BUILDNAME = 'Itotko-dk :: ' + BRANCH
 
 pipeline {
   agent {
-    node { label 'm1' }
+    node { label 'master' }
   }
   options {
     buildDiscarder(logRotator(artifactDaysToKeepStr: "", artifactNumToKeepStr: "", daysToKeepStr: "", numToKeepStr: "5"))
@@ -31,7 +31,7 @@ pipeline {
         }
       }
     }
-
+    
     stage('Push to artifactory') {
       steps {
         script {
