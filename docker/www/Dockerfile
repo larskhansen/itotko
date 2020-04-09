@@ -1,6 +1,6 @@
 ARG BRANCH=master
 
-FROM docker-dscrum.dbc.dk/d8-php7-builder as builder
+FROM php:7.4-cli as builder
 
 ARG BRANCH
 
@@ -11,6 +11,10 @@ WORKDIR /var/lib/jenkins
 RUN apt-get update && \
     apt-get -q -y install php-intl php-soap git ssh && \
    	rm -rf /var/lib/apt/lists/* && \
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+    php -r "if (hash_file('sha384', 'composer-setup.php') === 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
+    php composer-setup.php --install-dir=bin --filename=composer && \
+    php -r "unlink('composer-setup.php');" && \
     apt-get autoremove -y
 
 RUN mkdir www
@@ -20,23 +24,21 @@ ADD config/ ./www/config/
 ADD docker/www/script/change_branch.sh ./www
 RUN chown -R jenkins:jenkins /var/lib/jenkins/www
 
-USER jenkins
-
-WORKDIR /var/lib/jenkins/www
+WORKDIR /var/www
 
 RUN composer update --no-dev --with-dependencies
 
-FROM docker.dbc.dk/dbc-apache-php7
+FROM php:7.4-apache
 
 ENV APACHE_ROOT=/var/www/web \
     APACHE_RUN_DIR=/var/run/apache2 \
     APACHE_SERVER_NAME=itotko \
     MEMCACHED_SERVER=memcached \
     URL_PATH=app \
-    MARIA_DB=filestore \
-    MARIA_USER=filestore \
-    MARIA_PASSWORD=filestore \
-    MARIA_HOST=mariadb
+    MARIA_DB=to_be_replaced \
+    MARIA_USER=to_be_replaced \
+    MARIA_PASSWORD=to_be_replaced \
+    MARIA_HOST=to_be_replaced
 
 RUN apt-get update && \
 	apt-get -q -y install php-intl php-soap postgresql-client && \
@@ -45,7 +47,7 @@ RUN apt-get update && \
 	a2enmod rewrite headers cache_disk
 
 WORKDIR /var/www
-COPY --from=builder /var/lib/jenkins/www /var/www
+COPY --from=builder /var/www /var/www
 
 RUN rm -rf change_branch.sh .editorconfig .gitattributes html
 
