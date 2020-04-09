@@ -20,6 +20,8 @@
     ],
     "require": {
         "composer/installers": "^1.2",
+        "drupal/admin_toolbar": "^1.27",
+        "drupal/bootstrap": "^3.21",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
@@ -34,7 +36,6 @@
         "drupal/webform": "^5.4",
         "drupal/zurb_foundation": "^6.0",
         "drush/drush": "^9.0.0",
-        "drupal/admin_toolbar": "^1.27",
         "larskhansen/itotko_theme": "dev-master"
     },
     "require-dev": {
