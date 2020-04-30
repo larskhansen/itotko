@@ -1,12 +1,12 @@
-features:
-  node_user_picture: 1
-  comment_user_picture: 1
-  favicon: 1
 logo:
-  use_default: 0
   path: ''
+  url: ''
+  use_default: false
 favicon:
-  use_default: 1
+  mimetype: image/vnd.microsoft.icon
+  path: ''
+  url: 'http://localhost:86/themes/custom/itotko_theme/favicon.ico'
+  use_default: true
 zurb_foundation_status_in_reveal: 0
 zurb_foundation_use_respondjs: 0
 zurb_foundation_meta_header_grid: 1
@@ -23,3 +23,20 @@ zurb_foundation_page_site_logo: 1
 zurb_foundation_page_account_info: 0
 zurb_foundation_disable_base_css: 0
 zurb_foundation_disable_base_js: 0
+schemas:
+  bootstrap: 8000
+  itotko: 8000
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+table_responsive: '-1'
+cdn_provider: ''
+cdn_theme: ''
+cdn_cache_ttl_versions: 0
+cdn_cache_ttl_themes: 0
+cdn_cache_ttl_assets: 0
+cdn_cache_ttl_library: 0
+reset_http_request_cache: ''
+table: ''

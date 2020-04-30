@@ -1,19 +1,19 @@
-uuid: 54f67bd8-3558-4451-9af3-0e15e9d5bb39
+uuid: 0328ea46-1d1f-4434-b43e-92d879b86e73
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.footer
   module:
     - system
   theme:
-    - itotko
+    - bootstrap
 _core:
-  default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
-id: itotko_footer
-theme: itotko
-region: navigation
-weight: -5
+  default_config_hash: 4VDn3bLy009pYlPUWQBHaaGVJu8FPnxNfr2DYrAnNHI
+id: bootstrap_footer
+theme: bootstrap
+region: footer
+weight: 0
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

@@ -1,6 +1,6 @@
 uuid: 61818cb4-cedd-4f3d-879c-09d83dff7478
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.main
@@ -10,8 +10,8 @@ dependencies:
     - itotko
 id: mainnavigation
 theme: itotko
-region: header
-weight: 0
+region: navigation
+weight: -2
 provider: null
 plugin: 'system_menu_block:main'
 settings:

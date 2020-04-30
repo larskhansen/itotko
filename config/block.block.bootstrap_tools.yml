@@ -1,19 +1,19 @@
-uuid: 8557dec6-0c82-412c-acb5-9006a846d184
+uuid: 6ab0445a-ed4b-4cbe-9e72-0595f9677f95
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.tools
   module:
     - system
   theme:
-    - itotko
+    - bootstrap
 _core:
-  default_config_hash: NeHSoqm4XFqA7_0bDmR429ZZQt3LRbZMNRJTMsFyOfI
-id: itotko_tools
-theme: itotko
-region: header
-weight: -6
+  default_config_hash: SrPItPkAevw9hGX_v5AfsVyw6vkoog7ZVLSJYqwsBHc
+id: bootstrap_tools
+theme: bootstrap
+region: sidebar_second
+weight: 0
 provider: null
 plugin: 'system_menu_block:tools'
 settings:
