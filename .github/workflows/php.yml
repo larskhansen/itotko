@@ -19,7 +19,12 @@ jobs:
     - name: Install dependencies
       run: composer update --no-dev --with-dependencies
 
-    - name: Build theme
+    - name: Fetch Bootstrap sass
       working-directory: web/themes/custom/itotko_theme
       run: |
-        git submodule init && git submodule update bootstrap && sass scss/style.scss css/style.css
+        git submodule init && git submodule update bootstrap
+
+    - name: Build sass
+      working-directory: web/themes/custom/itotko_theme
+      run: |
+        mkdir css && sass scss/style.scss css/style.css
