@@ -22,4 +22,4 @@ jobs:
     - name: Build theme
       working-directory: web/themes/custom/itotko_theme
       run: |
-        mkdir css && sass scss/itotko.scss css/itotko.css
+        mkdir css && sass scss/style.scss css/style.css
