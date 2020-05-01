@@ -36,5 +36,5 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: larskhansen
         dockerfile: docker/Dockerfile
-        repository: larskhansen/itotko
+        repository: itotko
         tags: v1
