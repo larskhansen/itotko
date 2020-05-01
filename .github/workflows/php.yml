@@ -26,7 +26,7 @@ jobs:
       run: |
         mkdir css && sass scss/style.scss css/style.css
 
-    ‐ name: build-push
+    - name: build-push
       uses: docker/build-push-action@v1
       with:
         username: ${{ DOCKER_USERNAME }}
