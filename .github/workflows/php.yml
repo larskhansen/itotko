@@ -19,5 +19,4 @@ jobs:
     - name: Build theme
       working-directory: web/themes/custom/itotko_theme
       run: |
-        npm install gulp
-        gulp build
+        git submodule init && git submodule update bootstrap && sass scss/style.scss css/style.css
