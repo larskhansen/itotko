@@ -22,4 +22,4 @@ jobs:
     - name: Build theme
       working-directory: web/themes/custom/itotko_theme
       run: |
-        ls -hal scss && ls -hal && sass scss/style.scss css/style.css
+        git submodule init && git submodule update bootstrap && sass scss/style.scss css/style.css
