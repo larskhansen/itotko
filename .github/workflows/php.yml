@@ -30,7 +30,7 @@ jobs:
         mkdir css && sass scss/style.scss css/style.css
 
     - name: Publish to Registry
-      uses: larskhansen/itotko@master
+      uses: actions/checkout@master
       with:
         name: larskhansen/itotko
         username: ${{ secrets.DOCKER_USERNAME }}
