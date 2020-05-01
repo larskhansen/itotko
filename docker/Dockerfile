@@ -6,10 +6,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
-COPY config /var/www/
-COPY vendor /var/www/
-COPY web /var/www/
-COPY composer.json /var/www/
-COPY composer.lock /var/www/
+COPY --chown=www-data:www-data config /var/www/config
+COPY --chown=www-data:www-data vendor /var/www/vendor
+COPY --chown=www-data:www-data web /var/www/web
+COPY --chown=www-data:www-data composer.json /var/www/
+COPY --chown=www-data:www-data composer.lock /var/www/
 
 WORKDIR /var/www
