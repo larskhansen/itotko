@@ -29,10 +29,11 @@ jobs:
       run: |
         mkdir css && sass scss/style.scss css/style.css
 
-    - name: Publish to Registry
-      uses: actions/checkout@master
+    ‐ name: build-push
+      uses: docker/build-push-action@v1
       with:
-        name: larskhansen/itotko
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: docker/Dockerfile
+        username: ${{ DOCKER_USERNAME }}
+        password: ${{ DOCKER_PASSWORD }}
+        registry: larskhansen
+        repository: larskhansen/itotko
+        tags: v1
