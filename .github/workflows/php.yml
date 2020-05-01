@@ -19,7 +19,7 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Build theme
+    - name: Build theme.
       working-directory: web/themes/custom/itotko_theme
       run: |
-        ls -hal && sass scss/style.scss css/style.css
+        ls -hal scss && sass scss/style.scss css/style.css
