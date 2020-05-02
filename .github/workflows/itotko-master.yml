@@ -39,12 +39,12 @@ jobs:
         buildx-version: latest
         qemu-version: latest
     - name: Run Buildx
-        run: |
-          docker buildx build \
-            -t itotko \
-            --platform linux/arm/v6,linux/arm/v7,linux/arm64 \
-            --output "type=image,push=false" \
-            --file ./docker/Dockerfile .
+      run: |
+        docker buildx build \
+          -t itotko \
+          --platform linux/arm/v6,linux/arm/v7,linux/arm64 \
+          --output "type=image,push=false" \
+          --file ./docker/Dockerfile .
     - name: Push image
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
