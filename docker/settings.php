@@ -764,7 +764,7 @@ $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_YSgWpuwi8SMXMVbQbJobn_jZyTaEalX-WOJH0SbX1a4VT_VsO3qiwQphhNfCqUfpeCo4PpdcaQ/sync';
 
 $conf['memcache_servers'] = array(
-  '192.168.1.40:11211' => 'default'
+  '192.168.1.50:11211' => 'default'
 );
 $conf['memcache_bins'] = array(
   'cache' => 'default',
