@@ -33,6 +33,11 @@ jobs:
         mkdir css && sass scss/style.scss css/style.css
 
     - name: build-push
+      run:
+        docker buildx build
+        --platform linux/arm
+        --output "type=image,push=false" \
+            --file ./docker/Dockerfile .
       uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
