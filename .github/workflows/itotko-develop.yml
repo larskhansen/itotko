@@ -1,0 +1,39 @@
+name: Itotko-master
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+jobs:
+  build:
+    runs-on: drupal-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Fetch Bootstrap sass
+      working-directory: web/themes/custom/itotko_theme
+      run: |
+        git submodule init && git submodule update bootstrap
+
+    - name: Build sass
+      working-directory: web/themes/custom/itotko_theme
+      run: |
+        mkdir css && sass scss/style.scss css/style.css
+
+    - name: build-push
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: docker/Dockerfile
+        repository: larskhansen/itotko
+        tags: latest
