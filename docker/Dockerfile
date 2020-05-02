@@ -14,4 +14,6 @@ COPY --chown=www-data:www-data composer.lock /var/www/
 
 RUN sed -i "s|/var/www/html|/var/www|" /etc/apache2/sites-available/000-default.conf
 
+COPY docker/run_startup.sh /
+
 WORKDIR /var/www
