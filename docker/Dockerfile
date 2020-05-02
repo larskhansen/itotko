@@ -1,4 +1,10 @@
 FROM php:7.4-apache
+
+ENV USERNAME=username \
+    PASSWORD=password \
+    HOST=host \
+    DB=db
+
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -17,10 +23,12 @@ COPY --chown=www-data:www-data web /var/www/web
 COPY --chown=www-data:www-data composer.json /var/www/
 COPY --chown=www-data:www-data composer.lock /var/www/
 
-RUN sed -i "s|/var/www/html|/var/www|" /etc/apache2/sites-available/000-default.conf
+RUN sed -i "s|/var/www/html|/var/www/web|" /etc/apache2/sites-available/000-default.conf
 
 COPY docker/settings.php /var/www/web/sites/default/settings.php
 
-COPY docker/run_startup.sh /
+COPY docker/setup-itotko /usr/local/bin/
 
 WORKDIR /var/www
+
+CMD ["setup-itotko"]

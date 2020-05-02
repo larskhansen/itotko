@@ -727,7 +727,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 $settings['trusted_host_patterns'] = array(
   '^www\.itotko\.dk$',
   '^itotko\.dk$',
-  '^192\.168\.1\.50$'
+  '^192\.168\.1\.50$',
+  '^localhost$'
 );
 
 /**
