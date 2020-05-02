@@ -3,8 +3,13 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
+        mariadb-client \
+        libmemcached-dev \
+        zlib1g-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
+    && docker-php-ext-install -j$(nproc) gd pdo_mysql \
+    && pecl install memcached-3.1.5 \
+    && docker-php-ext-enable memcached
 
 COPY --chown=www-data:www-data config /var/www/config
 COPY --chown=www-data:www-data vendor /var/www/vendor
@@ -13,6 +18,8 @@ COPY --chown=www-data:www-data composer.json /var/www/
 COPY --chown=www-data:www-data composer.lock /var/www/
 
 RUN sed -i "s|/var/www/html|/var/www|" /etc/apache2/sites-available/000-default.conf
+
+COPY docker/settings.php /var/www/web/sites/default/settings.php
 
 COPY docker/run_startup.sh /
 
