@@ -5,7 +5,7 @@ WORKDIR /var/www
 RUN echo 'memory_limit = -1' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends git libfreetype6-dev libjpeg62-turbo-dev libpng-dev zlib1g-dev zip unzip libzip-dev
+    apt-get install -y --no-install-recommends sass git libfreetype6-dev libjpeg62-turbo-dev libpng-dev zlib1g-dev zip unzip libzip-dev
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
@@ -21,6 +21,8 @@ ADD composer.lock .
 ADD config /var/www
 
 RUN composer install
+
+RUN cd /var/www/web/themes/custom/itotko_theme && mkdir css && sass scss/style.scss css/style.css
 
 FROM php:7.4-apache
 
