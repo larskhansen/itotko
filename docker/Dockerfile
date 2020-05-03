@@ -20,7 +20,7 @@ ADD composer.json .
 ADD composer.lock .
 ADD config/ .
 
-RUN composer update --no-dev --with-dependencies
+RUN composer install
 
 FROM php:7.4-apache
 
