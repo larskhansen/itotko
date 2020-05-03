@@ -22,7 +22,10 @@ ADD config /var/www
 
 RUN composer install
 
-RUN cd /var/www/web/themes/custom/itotko_theme && mkdir css && sass scss/style.scss css/style.css
+RUN cd /var/www/web/themes/custom/itotko_theme \
+    && git clone https://github.com/twbs/bootstrap-sass.git bootstrap \
+    && mkdir css \
+    && sass scss/style.scss css/style.css
 
 FROM php:7.4-apache
 
