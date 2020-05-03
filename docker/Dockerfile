@@ -18,7 +18,7 @@ RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 ADD composer.json .
 ADD composer.lock .
-ADD config/ .
+ADD config /var/www
 
 RUN composer install
 
@@ -45,10 +45,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN sed -i "s|/var/www/html|/var/www/web|" /etc/apache2/sites-available/000-default.conf
 
-COPY docker/settings.php /var/www/web/sites/default/settings.php
-
-COPY docker/setup-itotko /usr/local/bin/
+ADD docker/settings.php /var/www/web/sites/default/settings.php
+ADD docker/start-itotko /usr/local/bin/
 
 WORKDIR /var/www
 
-CMD ["setup-itotko"]
+CMD ["start-itotko"]
