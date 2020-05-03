@@ -6,5 +6,9 @@ cd /var/www || return
 # Insert the database settings into settings.php.
 vendor/bin/drupal dba --password=$PASSWORD --driver=mysql --host=$HOST --database=$DB \
 --username=$USERNAME --port=3306 --default -n
+vendor/bin/drupal ci --directory=/var/www/config
+
+vendor/bin/drush updb -y
+vendor/bin/drush cr
 
 /usr/local/bin/apache2-foreground
