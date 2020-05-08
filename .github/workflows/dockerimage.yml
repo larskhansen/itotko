@@ -38,4 +38,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: docker/Dockerfile
         repository: larskhansen/itotko
-        tags: ${{ BUILD_NUMBER }}
+        tags: $GITHUB_RUN_NUMBER
