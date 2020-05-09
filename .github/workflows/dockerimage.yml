@@ -23,19 +23,21 @@ jobs:
       
     - name: Available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
+    - name: Git run number
+      run: echo $GITHUB_RUN_NUMBER
       
-    - name: Run Buildx
-      run: |
-        docker buildx build \
-          --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 \
-          --output "type=image,push=false" \
-          --file ./docker/Dockerfile .
-      
-    - name: build-push
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: docker/Dockerfile
-        repository: larskhansen/itotko
-        tags: $GITHUB_RUN_NUMBER
+#    - name: Run Buildx
+#      run: |
+#        docker buildx build \
+#          --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 \
+#          --output "type=image,push=false" \
+#          --file ./docker/Dockerfile .
+#      
+#    - name: build-push
+#      uses: docker/build-push-action@v1
+#      with:
+#        username: ${{ secrets.DOCKER_USERNAME }}
+#        password: ${{ secrets.DOCKER_PASSWORD }}
+#        dockerfile: docker/Dockerfile
+#        repository: larskhansen/itotko
+#        tags: $GITHUB_RUN_NUMBER
