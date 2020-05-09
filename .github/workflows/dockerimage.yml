@@ -41,5 +41,5 @@ jobs:
         docker buildx build \
           --output type=image,name=${{ steps.prepare.outputs.docker_image }},push=true \
           --platform ${{ steps.prepare.outputs.docker_platforms }} \
-          --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.build_number" \
+          --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.build_number }}" \
           --file docker/Dockerfile .
