@@ -30,7 +30,7 @@ jobs:
         echo ::set-output name=docker_image::docker.io/larskhansen/itotko
         echo ::set-output name=version::${GITHUB_REF#refs/*/}
         echo ::set-output name=hash::${GITHUB_SHA}
-        echo ::set-output name=build_number::${GITHUB_BUILD_NUMBER}
+        echo ::set-output name=build_number::${GITHUB_RUN_NUMBER}
     - name: Docker Login
       if: success()
       env:
