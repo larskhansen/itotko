@@ -1,6 +1,6 @@
 # Repository for itotko.dk
 
-![Itotko-master](![Itotko-master](https://github.com/larskhansen/itotko/workflows/Itotko-master/badge.svg?branch=master&event=push))
+![Itotko-master](https://github.com/larskhansen/itotko/workflows/Itotko-master/badge.svg?branch=master&event=push)
 
 This project is for the Drupal 8 website, itotko.dk. The site is running on a Docker Swarm setup with 3 Raspberry Pi's. You can find the docker images on [my docker hub repository](https://hub.docker.com/repository/docker/larskhansen/itotko)
 
