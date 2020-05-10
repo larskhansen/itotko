@@ -725,9 +725,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  */
 
 $settings['trusted_host_patterns'] = array(
-  '^www\.itotko\.dk$',
-  '^itotko\.dk$',
-  '^192\.168\.1\.40$',
+  '^@WWWDOMAINNAME@$',
+  '^@DOMAINNAME@$',
   '^localhost$'
 );
 
@@ -765,8 +764,7 @@ $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_pf0Fe8G8Z8BXloon8i_4RL5-2vDX580rxDkP1f8n00iM4scFcm336FxfUCVoO8BjC6pMPBZU0A/sync';
 $config_directories['deploy'] = '../config';
 
-
-$conf['memcache_servers'] = array(
+$conf['@MEMCACHED_SERVER@'] = array(
   '192.168.1.50:11211' => 'default'
 );
 $conf['memcache_bins'] = array(

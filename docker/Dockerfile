@@ -43,7 +43,10 @@ ENV USERNAME=username \
     HOST=host \
     DB=db \
     DOMAINNAME=itotko.dk \
-    APACHE_DOCUMENT_ROOT=/var/www/web
+    WWWDOMAINNAME=www.itotko.dk \
+    APACHE_DOCUMENT_ROOT=/var/www/web \
+    MEMCACHED_SERVER=192.168.1.50
+
 
 # Installing gd and memcached.
 RUN apt-get update && apt-get install -y \

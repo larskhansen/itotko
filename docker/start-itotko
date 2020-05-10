@@ -1,6 +1,15 @@
 #!/bin/bash
 set -e
 
+sed -i "s|@MEMCACHED_SERVER@|$MEMCACHED_SERVER|" \
+    /var/www/web/sites/default/settings.php
+
+sed -i "s|@WWWDOMAINNAME@|$WWWDOMAINNAME|" \
+    /var/www/web/sites/default/settings.php
+
+sed -i "s|@DOMAINNAME@|$DOMAINNAME|" \
+    /var/www/web/sites/default/settings.php
+
 cd /var/www || return
 
 # Insert the database settings into settings.php.
