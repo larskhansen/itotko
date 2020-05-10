@@ -22,7 +22,7 @@ RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 ADD composer.json .
 ADD composer.lock .
-ADD config /var/www
+ADD config/ ./config/
 
 RUN composer install
 
