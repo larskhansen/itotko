@@ -763,7 +763,7 @@ $settings['file_scan_ignore_directories'] = [
 
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_pf0Fe8G8Z8BXloon8i_4RL5-2vDX580rxDkP1f8n00iM4scFcm336FxfUCVoO8BjC6pMPBZU0A/sync';
-$config_directories['deploy'] = '../config/sync';
+$config_directories['deploy'] = '../config';
 
 
 $conf['memcache_servers'] = array(
