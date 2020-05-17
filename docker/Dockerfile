@@ -40,8 +40,9 @@ COPY --from=builder /var/www /var/www
 # Environment used for the database.
 ENV USERNAME=username \
     PASSWORD=password \
-    HOST=host \
-    DB=db \
+    HOST=hostname \
+    DB=dbname \
+    PORT=3306 \
     DOMAINNAME=itotko.dk \
     WWWDOMAINNAME=www.itotko.dk \
     APACHE_DOCUMENT_ROOT=/var/www/web \
