@@ -4,13 +4,9 @@ on:
   push:
     branches:
       - develop
-    branches-ignore:
-      - master
   pull_request:
     branches:
       - develop
-    branches-ignore:
-      - master
 jobs:
   buildx:
     runs-on: ubuntu-latest
