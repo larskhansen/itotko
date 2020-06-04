@@ -38,7 +38,7 @@ jobs:
       run: |
         echo "${DOCKER_PASSWORD}" | docker login --username "${{ steps.prepare.outputs.docker_username }}" --password-stdin docker.io
     - name: Run Buildx (master)
-      if: success()
+      if: success() && contains(steps.prepare.outputs.version, 'master')
       run: |
         docker buildx build \
           --output type=image,name=${{ steps.prepare.outputs.docker_image }},push=true \
