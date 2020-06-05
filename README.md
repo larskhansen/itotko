@@ -17,6 +17,7 @@ docker service create \
   -e DB=<your dbname> -e USERNAME=<your username> -e PASSWORD=<your password> -e HOST=<your host>
   larskhansen/itotko-dk
 ```
+There is also a itotko-dev image to play with.
 
 The environment variables are used for a connection to a mySQL/mariaDB database.
 
