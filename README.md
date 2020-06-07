@@ -14,11 +14,11 @@ docker service create \
   --name <your service name> \
   --network <your network name> \
   --endpoint-mode dnsrr \
-  -e DB=<your dbname> -e USERNAME=<your username> -e PASSWORD=<your password> -e HOST=<your host>
+  -e DB=<your dbname> -e USERNAME=<your dbusername> \
+  -e PASSWORD=<your dbpassword> -e HOST=<your dbhost> -e PORT=<your dbport> \
   larskhansen/itotko-dk
 ```
-There is also a itotko-dev image to play with.
-
+The replicas needs to be increased when the the service has been created.
 The environment variables are used for a connection to a mySQL/mariaDB database.
 
 > Note: This is a great website if you want to learn more about [Docker Swarm and HA-Proxy](https://www.haproxy.com/blog/haproxy-on-docker-swarm-load-balancing-and-dns-service-discovery/).
