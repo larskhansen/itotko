@@ -1819,26 +1819,26 @@
         },
         {
             "name": "drupal/bootstrap",
-            "version": "3.21.0",
+            "version": "3.22.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bootstrap.git",
-                "reference": "8.x-3.21"
+                "reference": "8.x-3.22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.21.zip",
-                "reference": "8.x-3.21",
-                "shasum": "e431093eb4f64712b02e691660a85cfa4fb49c88"
+                "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.22.zip",
+                "reference": "8.x-3.22",
+                "shasum": "03cc41f810c30b73f74d4c8f31db460f7d0fadba"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.21",
-                    "datestamp": "1574427108",
+                    "version": "8.x-3.22",
+                    "datestamp": "1591319896",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1847,7 +1847,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -1869,7 +1869,7 @@
             "description": "Built to use Bootstrap, a sleek, intuitive, and powerful front-end framework for faster and easier web development.",
             "homepage": "https://www.drupal.org/project/bootstrap",
             "support": {
-                "source": "http://cgit.drupalcode.org/bootstrap",
+                "source": "https://git.drupalcode.org/project/bootstrap",
                 "docs": "https://drupal-bootstrap.org",
                 "issues": "https://www.drupal.org/project/issues/bootstrap",
                 "irc": "irc://irc.freenode.org/drupal-bootstrap"
@@ -3195,27 +3195,30 @@
         },
         {
             "name": "drupal/smtp",
-            "version": "1.0.0-rc2",
+            "version": "1.0.0-rc3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/smtp.git",
-                "reference": "8.x-1.0-rc2"
+                "reference": "8.x-1.0-rc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/smtp-8.x-1.0-rc2.zip",
-                "reference": "8.x-1.0-rc2",
-                "shasum": "0dde6db7969a746c5e50a0553c7948f0480f64c6"
+                "url": "https://ftp.drupal.org/files/projects/smtp-8.x-1.0-rc3.zip",
+                "reference": "8.x-1.0-rc3",
+                "shasum": "53492cf93aff2c644015fe8b3d6219dd5ad82b34"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9",
-                "phpmailer/phpmailer": "~6.0"
+                "phpmailer/phpmailer": "^6.1.5"
+            },
+            "suggest": {
+                "drupal/mailsystem": "Allows using SMTP alongside other mail modules."
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-rc2",
-                    "datestamp": "1589493632",
+                    "version": "8.x-1.0-rc3",
+                    "datestamp": "1591402047",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -3570,12 +3573,12 @@
             "version": "0.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/njh/easyrdf.git",
+                "url": "https://github.com/easyrdf/easyrdf.git",
                 "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/njh/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
+                "url": "https://api.github.com/repos/easyrdf/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
                 "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566",
                 "shasum": ""
             },
@@ -4274,12 +4277,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larskhansen/itotko_theme.git",
-                "reference": "9dcc267c66d9ba9ea66f157176918b9dbaf5e330"
+                "reference": "8cadd85e423e7a2d491fa0ff3b6aba6ecbf87c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larskhansen/itotko_theme/zipball/9dcc267c66d9ba9ea66f157176918b9dbaf5e330",
-                "reference": "9dcc267c66d9ba9ea66f157176918b9dbaf5e330",
+                "url": "https://api.github.com/repos/larskhansen/itotko_theme/zipball/8cadd85e423e7a2d491fa0ff3b6aba6ecbf87c9a",
+                "reference": "8cadd85e423e7a2d491fa0ff3b6aba6ecbf87c9a",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -4302,7 +4305,7 @@
                 "source": "https://github.com/larskhansen/itotko_theme/tree/develop",
                 "issues": "https://github.com/larskhansen/itotko_theme/issues"
             },
-            "time": "2020-05-29T07:45:33+00:00"
+            "time": "2020-06-07T05:33:29+00:00"
         },
         {
             "name": "league/container",
