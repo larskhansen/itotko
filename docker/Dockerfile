@@ -49,7 +49,8 @@ ENV USERNAME=username \
     DOMAINNAME=itotko.dk \
     WWWDOMAINNAME=www.itotko.dk \
     APACHE_DOCUMENT_ROOT=/var/www/web \
-    MEMCACHED_SERVER=192.168.1.50
+    MEMCACHED_SERVER=192.168.1.50 \
+    STARTUP=drupal
 
 
 # Installing gd and memcached.
