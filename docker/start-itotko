@@ -30,7 +30,7 @@ elif [ "$STARTUP" == 'startup' ]; then
   # Update the database.
   vendor/bin/drush updb -y
   # Import configuration.
-  vendor/bin/drupal ci --directory=/var/www/config
+  vendor/bin/drush cim -y
   # Rebuild cache.
   vendor/bin/drush cr
 fi
