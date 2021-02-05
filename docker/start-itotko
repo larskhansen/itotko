@@ -17,7 +17,7 @@ sed -i "s|@DOMAINNAME@|$DOMAINNAME|" \
 cd /var/www || return
 
 # Insert the database settings into settings.php.
-vendor/bin/drupal dba --password=$(cat $PASSWORD) --driver=mysql --host=$HOST --database=$DB \
+vendor/bin/drupal dba --password=$PASSWORD --driver=mysql --host=$HOST --database=$DB \
 --username=$USERNAME --port=$PORT --default -n
 
 if [ "$STARTUP" == 'drupal' ]; then
