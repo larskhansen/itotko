@@ -68,7 +68,7 @@ RUN apt-get update && apt-get install -y \
 
 # Changing the apache_document_root to remove the unused html folder.
 RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" \
-    /etc/apache2/sites-available/000-default.conf &&
+    /etc/apache2/sites-available/000-default.conf && \
     a2enmod rewrite mpm_itk
 
 # The settings.php file does not have the sensitive db settings.
