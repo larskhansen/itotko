@@ -764,9 +764,6 @@ $settings['install_profile'] = 'standard';
 $settings['config_sync_directory'] = '../config';
 
 
-$conf['@MEMCACHED_SERVER@'] = array(
-  '192.168.1.50:11211' => 'default'
-);
-$conf['memcache_bins'] = array(
-  'cache' => 'default',
-);
+$settings['memcache_storage']['memcached_servers'] = [
+  '@MEMCACHED_SERVER@:11211' => 'default',
+];
