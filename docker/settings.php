@@ -361,13 +361,13 @@ $settings['update_free_access'] = FALSE;
  * Be aware, however, that it is likely that this would allow IP
  * address spoofing unless more advanced precautions are taken.
  */
-# $settings['reverse_proxy'] = TRUE;
+$settings['reverse_proxy'] = TRUE;
 
 /**
  * Specify every reverse proxy IP address in your environment.
  * This setting is required if $settings['reverse_proxy'] is TRUE.
  */
-# $settings['reverse_proxy_addresses'] = array('a.b.c.d', ...);
+$settings['reverse_proxy_addresses'] = array('172.17.0.1', '192.168.1.50');
 
 /**
  * Set this value if your proxy server sends the client IP in a header
