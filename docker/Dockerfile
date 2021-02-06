@@ -61,15 +61,16 @@ RUN apt-get update && apt-get install -y \
         mariadb-client \
         libmemcached-dev \
         zlib1g-dev \
+        libzip-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd pdo_mysql \
+    && docker-php-ext-install -j$(nproc) gd pdo_mysql zip \
     && pecl install memcached-3.1.5 \
     && docker-php-ext-enable memcached
 
 # Changing the apache_document_root to remove the unused html folder.
 RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" \
     /etc/apache2/sites-available/000-default.conf && \
-    a2enmod rewrite mpm_itk
+    a2enmod rewrite
 
 # The settings.php file does not have the sensitive db settings.
 ADD docker/settings.php /var/www/web/sites/default/settings.php
