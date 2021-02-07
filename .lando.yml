@@ -1,0 +1,41 @@
+name: itotko
+recipe: drupal8
+config:
+  webroot: web
+  php: 7.3
+  database: mariadb
+  xdebug: true
+
+services:
+  appserver:
+    overrides:
+      environment:
+        PHP_IDE_CONFIG: "serverName=PHPSTORM"
+        DRUSH_OPTIONS_URI: "http://itotko.lndo.site"
+        XDEBUG_CONFIG: "remote_enable=true remote_host=10.254.254.254 xdebug.remote_port=9000 xdebug.remote_log='/tmp/xdebug.log' xdebug.max_nesting_level=1500"
+    build_as_root:
+      - apt update && apt install -y sass
+  database:
+    type: mariadb
+    portforward: true
+  memcached:
+    type: memcached
+    portforward: true
+
+tooling:
+  pre-import:
+    description: Build local dependencies, import config and run database updates
+    cmd:
+      - appserver: drush site:install --db-url=mysql://drupal8:drupal8@database/drupal8 --account-pass=content --site-name=$LANDO_APP_NAME -y
+      - appserver: /bin/sh -c "chmod -R u+rw web/sites"
+      - appserver: echo "# IMPORT files and DB next >>>>>>>>"
+
+  post-import:
+    description: Imports config and run database updates
+    cmd:
+      - appserver: git clone https://github.com/twbs/bootstrap-sass.git /app/web/themes/custom/itotko_theme/bootstrap
+      - appserver: mkdir /app/web/themes/custom/itotko_theme/css
+      - appserver: sass /app/web/themes/custom/itotko_theme/scss/style.scss /app/web/themes/custom/itotko_theme/css/style.css
+      - appserver: drush updb -y
+      - appserver: drush cim -y
+      - appserver: drush cr
