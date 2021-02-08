@@ -4104,12 +4104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larskhansen/itotko_theme.git",
-                "reference": "8cadd85e423e7a2d491fa0ff3b6aba6ecbf87c9a"
+                "reference": "f33a452b7b29167778089601c5d86ea9a6bc7a00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larskhansen/itotko_theme/zipball/8cadd85e423e7a2d491fa0ff3b6aba6ecbf87c9a",
-                "reference": "8cadd85e423e7a2d491fa0ff3b6aba6ecbf87c9a",
+                "url": "https://api.github.com/repos/larskhansen/itotko_theme/zipball/f33a452b7b29167778089601c5d86ea9a6bc7a00",
+                "reference": "f33a452b7b29167778089601c5d86ea9a6bc7a00",
                 "shasum": ""
             },
             "default-branch": true,
@@ -4130,10 +4130,10 @@
                 "Drupal"
             ],
             "support": {
-                "source": "https://github.com/larskhansen/itotko_theme/tree/develop",
+                "source": "https://github.com/larskhansen/itotko_theme/tree/master",
                 "issues": "https://github.com/larskhansen/itotko_theme/issues"
             },
-            "time": "2020-06-07T05:33:29+00:00"
+            "time": "2021-02-08T06:25:05+00:00"
         },
         {
             "name": "league/container",
