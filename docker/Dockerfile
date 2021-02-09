@@ -75,7 +75,7 @@ RUN apt-get update && apt-get install -y \
        | cut -d: -f1 \
        | sort -u \
        | xargs -rt apt-mark manual \
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false 
+    && apt-get purge -y --auto-remove
 
 RUN { \
 		echo 'opcache.memory_consumption=128'; \
