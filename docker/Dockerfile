@@ -66,16 +66,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql zip opcache \
     && pecl install memcached-3.1.5 \
     && docker-php-ext-enable memcached \
-    && apt-mark auto '.*' > /dev/null \
-    && apt-mark manual $savedAptMark \
-    && ldd "$(php -r 'echo ini_get("extension_dir");')"/*.so \
-       | awk '/=>/ { print $3 }' \
-       | sort -u \
-       | xargs -r dpkg-query -S \
-       | cut -d: -f1 \
-       | sort -u \
-       | xargs -rt apt-mark manual \
-    && apt-get purge -y --auto-remove
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get autoremove -y
 
 RUN { \
 		echo 'opcache.memory_consumption=128'; \
