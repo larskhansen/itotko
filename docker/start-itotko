@@ -20,17 +20,12 @@ cd /var/www || return
 vendor/bin/drupal dba --password=$PASSWORD --driver=mysql --host=$HOST --database=$DB \
 --username=$USERNAME --port=$PORT --default -n
 
-if [ "$STARTUP" == 'drupal' ]; then
+# Update the database.
+vendor/bin/drush updb -y
+# Import configuration.
+vendor/bin/drush cim -y
+# Rebuild cache.
+vendor/bin/drush cr
 
-  # Start Apache.
-  /usr/local/bin/apache2-foreground
-
-elif [ "$STARTUP" == 'startup' ]; then
-
-  # Update the database.
-  vendor/bin/drush updb -y
-  # Import configuration.
-  vendor/bin/drush cim -y
-  # Rebuild cache.
-  vendor/bin/drush cr
-fi
+# Start Apache.
+/usr/local/bin/apache2-foreground

@@ -1,4 +1,4 @@
-FROM php:7.4-apache as builder
+FROM php:7.4-apache-buster as builder
 
 WORKDIR /var/www
 
@@ -35,7 +35,7 @@ RUN cd /var/www/web/themes/custom/itotko_theme \
     && sass scss/style.scss css/style.css
 
 # Now to the actual docker image
-FROM php:7.4-apache
+FROM php:7.4-apache-buster
 
 # No need to build it again, just copy it.
 COPY --from=builder /var/www /var/www
@@ -53,7 +53,7 @@ ENV USERNAME=username \
     STARTUP=drupal
 
 
-# Installing gd and memcached.
+# Installing gd, memcached, pdo_mysql, zip and opcache.
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -61,16 +61,30 @@ RUN apt-get update && apt-get install -y \
         mariadb-client \
         libmemcached-dev \
         zlib1g-dev \
+        libzip-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd pdo_mysql \
+    && docker-php-ext-install -j$(nproc) gd pdo_mysql zip opcache \
     && pecl install memcached-3.1.5 \
-    && docker-php-ext-enable memcached
+    && docker-php-ext-enable memcached \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get autoremove -y
+
+RUN { \
+		echo 'opcache.memory_consumption=128'; \
+		echo 'opcache.interned_strings_buffer=8'; \
+		echo 'opcache.max_accelerated_files=4000'; \
+		echo 'opcache.revalidate_freq=60'; \
+		echo 'opcache.fast_shutdown=1'; \
+	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 # Changing the apache_document_root to remove the unused html folder.
-RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" \
-    /etc/apache2/sites-available/000-default.conf
+RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available/000-default.conf \
+    && a2enmod rewrite \
+    && rm -rf /var/www/html \
+    && chown -Rf www-data:www-data /var/www/web
 
-# The settings.php file does not have the sensitive db settings.
+# The settings.php file does not and MUST NOT have the sensitive db settings.
+# This will be filled in via Environment variables in the startup script.
 ADD docker/settings.php /var/www/web/sites/default/settings.php
 
 # The startup script, this also starts the apache_foreground script.

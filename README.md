@@ -22,3 +22,20 @@ The replicas needs to be increased when the the service has been created.
 The environment variables are used for a connection to a mySQL/mariaDB database.
 
 > Note: This is a great website if you want to learn more about [Docker Swarm and HA-Proxy](https://www.haproxy.com/blog/haproxy-on-docker-swarm-load-balancing-and-dns-service-discovery/).
+
+## Lando Usage
+
+Use the lando for local development:
+´``
+# You need to be in the folder where the .lando.yml file is located.
+lando start
+
+# Run composer
+lando composer update
+
+# Get the database ready and write the settings.php file.
+lando pre-import
+
+# Update the system with the latest stuff
+lando post-import
+```
