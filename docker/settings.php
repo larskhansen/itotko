@@ -767,3 +767,14 @@ $settings['config_sync_directory'] = '../config';
 $settings['memcache_storage']['memcached_servers'] = [
   '@MEMCACHED_SERVER@:11211' => 'default',
 ];
+
+$databases['default']['default'] = array (
+  'database' => '@DB@',
+  'username' => '@USERNAME@',
+  'password' => '@PASSWORD@',
+  'prefix' => '',
+  'host' => '@HOST@',
+  'port' => '3306',
+  'driver' => 'mysql',
+);
+
