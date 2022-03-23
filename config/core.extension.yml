@@ -67,6 +67,7 @@ theme:
   seven: 0
   itotko: 0
   bootstrap: 0
+  bootstrap5: 0
 _core:
   default_config_hash: m2GVq11UAOVuNgj8x0t5fMOPujpvQQ_zxLoaly1BMEU
 profile: standard
