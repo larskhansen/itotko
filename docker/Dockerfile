@@ -4,7 +4,7 @@ WORKDIR /var/www
 
 # We need the gd and zip for composer install
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends sass git libfreetype6-dev \
+    apt-get install -y --no-install-recommends git libfreetype6-dev \
     libjpeg62-turbo-dev libpng-dev zlib1g-dev zip unzip libzip-dev
 
 # GD is required for Drupal 8
@@ -27,12 +27,14 @@ ADD config/ ./config/
 # Instailling it.
 RUN composer install
 
-# Setting up the theme. Installing the sass bootstrap repo
-# and building the scss files.
-RUN cd /var/www/web/themes/custom/itotko_theme \
-    && git clone https://github.com/twbs/bootstrap-sass.git bootstrap \
-    && mkdir css \
-    && sass scss/style.scss css/style.css
+# Building the style sheet and installing plugins for bootstrap5.
+FROM node:17 as script-builder
+
+WORKDIR /app/web/themes
+
+RUN npm --prefix contrib/bootstrap5 install && \
+    npm install -g sass && \
+    sass custom/itotko_theme/scss/style.scss custom/itotko_theme/css/style.css
 
 # Now to the actual docker image
 FROM php:7.4-apache-buster

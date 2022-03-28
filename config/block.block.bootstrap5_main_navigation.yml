@@ -1,19 +1,19 @@
-uuid: 297a8dbf-7bf0-4fc6-b379-a16207954890
+uuid: c3e53542-0cad-43d7-8929-f6fb9e06d1dc
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.main
   module:
     - system
   theme:
-    - itotko
+    - bootstrap5
 _core:
-  default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
-id: itotko_main_menu
-theme: itotko
-region: header
-weight: -4
+  default_config_hash: Fm7sDs2U1u99MaVOZEZqa-QOJrrUiQMWJb1jMozYO48
+id: bootstrap5_main_navigation
+theme: bootstrap5
+region: nav_main
+weight: 0
 provider: null
 plugin: 'system_menu_block:main'
 settings:
@@ -22,6 +22,6 @@ settings:
   label_display: '0'
   provider: system
   level: 1
-  depth: 1
-  expand_all_items: false
+  depth: 0
+  expand_all_items: true
 visibility: {  }

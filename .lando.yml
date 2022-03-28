@@ -13,14 +13,14 @@ services:
         PHP_IDE_CONFIG: "serverName=PHPSTORM"
         DRUSH_OPTIONS_URI: "http://itotko.lndo.site"
         XDEBUG_CONFIG: "remote_enable=true remote_host=10.254.254.254 xdebug.remote_port=9000 xdebug.remote_log='/tmp/xdebug.log' xdebug.max_nesting_level=1500"
-    build_as_root:
-      - apt update && apt install -y sass
   database:
     type: mariadb
     portforward: true
   memcached:
     type: memcached
     portforward: true
+  node:
+    type: node:16
 
 tooling:
   pre-import:
@@ -33,9 +33,9 @@ tooling:
   post-import:
     description: Imports config and run database updates
     cmd:
-      - appserver: git clone https://github.com/twbs/bootstrap-sass.git /app/web/themes/custom/itotko_theme/bootstrap
-      - appserver: mkdir /app/web/themes/custom/itotko_theme/css
-      - appserver: sass /app/web/themes/custom/itotko_theme/scss/style.scss /app/web/themes/custom/itotko_theme/css/style.css
+      - node: npm --prefix /app/web/themes/contrib/bootstrap5 install
+      - node: npm install -g sass
+      - node: sass /app/web/themes/custom/itotko_theme/scss/style.scss /app/web/themes/custom/itotko_theme/css/style.css
       - appserver: drush updb -y
       - appserver: drush cim -y
       - appserver: drush cr

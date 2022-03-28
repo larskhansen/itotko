@@ -13,12 +13,24 @@ sed -i "s|@WWWDOMAINNAME@|$WWWDOMAINNAME|" \
 sed -i "s|@DOMAINNAME@|$DOMAINNAME|" \
     /var/www/web/sites/default/settings.php
 
+# Insert the username for the database settings into settings.php.
+sed -i "s|@USERNAME@|$USERNAME|" \ 
+    /var/www/web/sites/default/settings.php
+
+# Insert the password for the database settings into settings.php.
+sed -i "s|@PASSWORD@|$PASSWORD|" \ 
+    /var/www/web/sites/default/settings.php
+
+# Insert the DB name for the database settings into settings.php.
+sed -i "s|@DB@|$DB|" \ 
+    /var/www/web/sites/default/settings.php
+
+# Insert the host for the database settings into settings.php.
+sed -i "s|@HOST@|$HOST|" \ 
+    /var/www/web/sites/default/settings.php
+
 # Just to make sure were at the root.
 cd /var/www || return
-
-# Insert the database settings into settings.php.
-vendor/bin/drupal dba --password=$PASSWORD --driver=mysql --host=$HOST --database=$DB \
---username=$USERNAME --port=$PORT --default -n
 
 # Update the database.
 vendor/bin/drush updb -y

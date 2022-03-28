@@ -1,17 +1,17 @@
-uuid: 9ce350ce-31fd-447e-84fc-34c44ac9f060
+uuid: 3a94da50-34dd-4e5a-93a1-5ce12348ad42
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - system
   theme:
-    - itotko
+    - bootstrap5
 _core:
-  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
-id: itotko_powered
-theme: itotko
-region: header
-weight: -7
+  default_config_hash: 2_xxaOb8b_0AUgYFdJLxIBDDwufyh6YozhGfBd97p38
+id: bootstrap5_powered_by_drupal
+theme: bootstrap5
+region: footer
+weight: 0
 provider: null
 plugin: system_powered_by_block
 settings:
