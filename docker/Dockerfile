@@ -80,8 +80,8 @@ RUN { \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 # Changing the apache_document_root to remove the unused html folder.
-RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available/000-default.conf \
-    && a2enmod rewrite \
+#RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available/000-default.conf \
+RUN a2enmod rewrite \
     && rm -rf /var/www/html \
     && chown -Rf www-data:www-data /var/www/web
 
