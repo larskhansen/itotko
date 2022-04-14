@@ -1,4 +1,8 @@
+FROM composer:2
+
 FROM php:7.4-apache-buster as builder
+
+COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 WORKDIR /var/www
 
@@ -15,22 +19,22 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
 RUN docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
-# Setup composer for installing the site.
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN chown -Rf www-data:www-data /var/www
+USER www-data
 
 # We need the recipe for the site.
 ADD composer.json .
-ADD composer.lock .
 ADD config/ ./config/
 
 # Instailling it.
-RUN composer install
+RUN composer update --no-cache
 
 # Building the style sheet and installing plugins for bootstrap5.
 FROM node:17 as script-builder
 
-WORKDIR /app/web/themes
+COPY --from=builder /var/www /var/www
+
+WORKDIR /var/www/web/themes
 
 RUN npm --prefix contrib/bootstrap5 install && \
     npm install -g sass && \
@@ -40,7 +44,7 @@ RUN npm --prefix contrib/bootstrap5 install && \
 FROM php:7.4-apache-buster
 
 # No need to build it again, just copy it.
-COPY --from=builder /var/www /var/www
+COPY --from=script-builder /var/www /var/www
 
 # Environment used for the database.
 ENV USERNAME=username \

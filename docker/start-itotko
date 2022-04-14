@@ -25,6 +25,8 @@ sed -i "s|@HOST@|$HOST|" /var/www/web/sites/default/settings.php
 # Just to make sure were at the root.
 cd /var/www || return
 
+vendor/bin/drush then -y bootstrap5
+
 vendor/bin/drush status
 
 # Update the database.

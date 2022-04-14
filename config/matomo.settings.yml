@@ -58,3 +58,5 @@ page_title_hierarchy: false
 page_title_hierarchy_exclude_home: true
 _core:
   default_config_hash: YGueb7ImKHSG1RRmIB1iqPHVGXTmI2yvCcB-RX7FPeY
+disable_tracking: false
+status_codes_disabled: {  }
