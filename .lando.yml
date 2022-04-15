@@ -23,6 +23,12 @@ services:
     type: node:16
 
 tooling:
+  build-stylesheet:
+    description: Rebuild the css file from the scss file
+    cmd:
+      - node: rm -rf /app/web/themes/custom/itotko_thtme/css
+      - node: sass /app/web/themes/custom/itotko_theme/scss/style.scss /app/web/themes/custom/itotko_theme/css/style.css
+
   pre-import:
     description: Build local dependencies, import config and run database updates
     cmd:
