@@ -26,7 +26,7 @@ The environment variables are used for a connection to a mySQL/mariaDB database.
 ## Lando Usage
 
 Use the lando for local development:
-´``
+```
 # You need to be in the folder where the .lando.yml file is located.
 lando start
 
