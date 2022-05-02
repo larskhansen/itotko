@@ -30,7 +30,7 @@ ADD config/ ./config/
 RUN composer update --no-cache
 
 # Building the style sheet and installing plugins for bootstrap5.
-FROM node:17 as script-builder
+FROM node:17.9 as script-builder
 
 COPY --from=builder /var/www /var/www
 
