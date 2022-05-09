@@ -4,7 +4,7 @@
 
 This project is for the Drupal 9 website, itotko.dk. The site is running on a Docker Swarm setup with 3 Raspberry Pi's. You can find the docker images on [my docker hub repository](https://hub.docker.com/repository/docker/larskhansen/itotko)
 
-## Docker Swarm Usage
+## Docker Swarm Usage (Not updated anymore)
 
 You need to start up the service on the master (Change the variables with < and > ):
 ```
