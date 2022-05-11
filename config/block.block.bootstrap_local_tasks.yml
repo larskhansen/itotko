@@ -1,6 +1,6 @@
 uuid: 8ee78cb8-6b3b-4eb0-a991-c3ddd316a187
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - bootstrap
@@ -8,15 +8,15 @@ _core:
   default_config_hash: qHdtze2DZ2mFfaJadxjZz6epm92_SN9SAFY4yJGl8Fo
 id: bootstrap_local_tasks
 theme: bootstrap
-region: header
+region: ''
 weight: 10
 provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
   label: Tabs
-  provider: core
   label_display: '0'
+  provider: core
   primary: true
   secondary: true
 visibility: {  }

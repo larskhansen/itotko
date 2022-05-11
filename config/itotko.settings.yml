@@ -1,12 +1,17 @@
-logo:
-  path: ''
-  url: ''
-  use_default: false
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: ''
   url: 'http://localhost:86/themes/custom/itotko_theme/favicon.ico'
   use_default: true
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: ''
+  url: ''
+  use_default: false
 zurb_foundation_status_in_reveal: 0
 zurb_foundation_use_respondjs: 0
 zurb_foundation_meta_header_grid: 1
@@ -26,11 +31,6 @@ zurb_foundation_disable_base_js: 0
 schemas:
   bootstrap: 8000
   itotko: 8000
-features:
-  comment_user_picture: true
-  comment_user_verification: true
-  favicon: true
-  node_user_picture: true
 table_responsive: '-1'
 cdn_provider: ''
 cdn_theme: ''

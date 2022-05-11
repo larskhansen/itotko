@@ -1,6 +1,6 @@
-uuid: 297a8dbf-7bf0-4fc6-b379-a16207954890
+uuid: 61818cb4-cedd-4f3d-879c-09d83dff7478
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.main
@@ -8,20 +8,18 @@ dependencies:
     - system
   theme:
     - itotko
-_core:
-  default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
-id: itotko_main_menu
+id: mainnavigation
 theme: itotko
-region: header
-weight: -4
+region: navigation
+weight: -2
 provider: null
 plugin: 'system_menu_block:main'
 settings:
   id: 'system_menu_block:main'
   label: 'Main navigation'
-  label_display: '0'
   provider: system
+  label_display: '0'
   level: 1
-  depth: 2
-  expand_all_items: true
+  depth: 0
+  expand_all_items: false
 visibility: {  }
