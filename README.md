@@ -44,4 +44,7 @@ lando post-import
 
 # Rebuild the stylesheet
 lando rebuild-stylesheet
+
+# Drush commands
+lando drush ....
 ```
