@@ -36,6 +36,12 @@ lando composer update
 # Get the database ready and write the settings.php file.
 lando pre-import
 
+# Import the database
+lando db-import sqlfile.sql
+
 # Update the system with the latest stuff
 lando post-import
+
+# Rebuild the stylesheet
+lando rebuild-stylesheet
 ```
