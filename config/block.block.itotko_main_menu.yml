@@ -12,8 +12,8 @@ _core:
   default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
 id: itotko_main_menu
 theme: itotko
-region: header
-weight: -4
+region: nav_main
+weight: -7
 provider: null
 plugin: 'system_menu_block:main'
 settings:

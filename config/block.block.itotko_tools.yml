@@ -13,7 +13,7 @@ _core:
 id: itotko_tools
 theme: itotko
 region: header
-weight: -6
+weight: -3
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

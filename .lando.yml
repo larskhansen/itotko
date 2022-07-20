@@ -32,7 +32,7 @@ tooling:
   pre-import:
     description: Build local dependencies, import config and run database updates
     cmd:
-      - appserver: drush site:install --db-url=mysql://drupal8:drupal8@database/drupal8 --account-pass=content --site-name=$LANDO_APP_NAME -y
+      - appserver: drush site:install --db-url=mysql://drupal9:drupal9@database/drupal9 --account-pass=content --site-name=$LANDO_APP_NAME -y
       - appserver: /bin/sh -c "chmod -R u+rw web/sites"
       - appserver: echo "# IMPORT files and DB next >>>>>>>>"
 
