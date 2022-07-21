@@ -1,4 +1,4 @@
-# Repository for itotko.dk
+# Repository for itotko.dk, this is a website for my wife and her coaching practice
 
 ![Itotko-master](https://github.com/larskhansen/itotko/workflows/Itotko-master/badge.svg?branch=master&event=push)
 
