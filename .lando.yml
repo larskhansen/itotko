@@ -39,7 +39,6 @@ tooling:
   post-import:
     description: Imports config and run database updates
     cmd:
-      - appserver: drush then bootstrap5 -y
       - node: npm --prefix /app/web/themes/contrib/bootstrap5 install
       - node: npm install -g sass
       - node: sass /app/web/themes/custom/itotko_theme/scss/style.scss /app/web/themes/custom/itotko_theme/css/style.css
