@@ -1,4 +1,25 @@
 _core:
   default_config_hash: 71vTnk5szuOQRTsOR-S5bjCzPvkxtx_eVGMqYa_mcqc
+favicon:
+  use_default: true
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: 'public://berith.jpg'
+  use_default: false
 schemas: {  }
 cdn_provider: ''
+b5_top_container: container
+b5_top_container_config: ''
+b5_body_schema: none
+b5_body_bg_schema: none
+b5_navbar_schema: none
+b5_navbar_bg_schema: none
+b5_footer_schema: none
+b5_footer_bg_schema: none
+subtheme_folder: themes/custom
+subtheme_name: 'B5 subtheme'
+subtheme_machine_name: b5subtheme
