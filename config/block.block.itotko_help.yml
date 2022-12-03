@@ -1,4 +1,4 @@
-uuid: 6a4f69c6-abae-495a-9351-632a356f6a8f
+uuid: 2a0e2872-fb8a-4a24-881a-260f07a96d3e
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   theme:
     - itotko
 _core:
-  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+  default_config_hash: fSNDJnjetH1uasWrqO-6TckYcxI7vMnFa0v_6LX1oQE
 id: itotko_help
 theme: itotko
 region: content
-weight: -5
+weight: -3
 provider: null
 plugin: help_block
 settings:

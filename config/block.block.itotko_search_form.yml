@@ -1,0 +1,23 @@
+uuid: e25a3f61-5ea7-4c71-b8ff-95689e6cb770
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - itotko
+_core:
+  default_config_hash: JmYXqNLFDNZ1ZgSpncfahM8QmA0dsmBOuEr-1f9hC_Y
+id: itotko_search_form
+theme: itotko
+region: nav_additional
+weight: 0
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

@@ -1,11 +1,11 @@
-uuid: 0e631cfc-83d5-42ac-a83e-59f279a397f6
+uuid: 58726adb-8476-4257-989b-a6e53b3a999d
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: lsQkbo4njZ-Q_oGKCPGXGWFjWF1I7QpgA6m-t9rcRoA
+  default_config_hash: 2B9uF8NL5gutNKSdPRAhhAsDWFZZG1PJOBmx0aBGd_0
 id: node_publish_action
 label: 'Publish content'
 type: node

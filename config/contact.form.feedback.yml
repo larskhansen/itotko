@@ -1,4 +1,4 @@
-uuid: d68d2069-8f39-48c8-b037-b4c4edbbb04f
+uuid: cdd2d6a3-76bc-453d-8da3-c3076c923dce
 langcode: en
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - larskhansen@gmail.com
+  - info@itotko.dk
 reply: ''
 weight: 0
 message: 'Your message has been sent.'

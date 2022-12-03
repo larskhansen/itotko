@@ -1,17 +1,17 @@
-uuid: 10b0518f-957e-43bf-a9ef-6a926602e70c
+uuid: 3c63f730-16c5-49c3-9756-3724c8751ab7
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - system
   theme:
     - itotko
 _core:
-  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+  default_config_hash: DF0M9utGoI7dDM_EuXt1mPhmKVw1FWXV1A-CmO7vZWU
 id: itotko_breadcrumbs
 theme: itotko
-region: header
-weight: -4
+region: breadcrumb
+weight: 0
 provider: null
 plugin: system_breadcrumb_block
 settings:
