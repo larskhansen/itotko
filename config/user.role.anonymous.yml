@@ -1,9 +1,18 @@
-uuid: 22dc6f1e-da5f-4b6b-8099-61958e81764e
+uuid: 4f82c005-3a46-45c7-bbc4-eaec39905a83
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - comment
+    - contact
+    - eu_cookie_compliance
+    - filter
+    - search
+    - system
 _core:
-  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
 id: anonymous
 label: 'Anonymous user'
 weight: 0
@@ -12,5 +21,6 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'display eu cookie compliance popup'
   - 'search content'
   - 'use text format restricted_html'

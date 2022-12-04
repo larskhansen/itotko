@@ -1,15 +1,15 @@
-uuid: 1d34d4a2-71b2-48aa-9f50-477db73a5673
+uuid: 0c0ccd72-0abd-44ea-9575-1faf339e971f
 langcode: en
 status: true
 dependencies:
   theme:
     - itotko
 _core:
-  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+  default_config_hash: DwM690IO2Zo9uGG3PvnseCR4FE051CbF2mWUA-U2dDQ
 id: itotko_local_tasks
 theme: itotko
 region: content
-weight: -6
+weight: -4
 provider: null
 plugin: local_tasks_block
 settings:

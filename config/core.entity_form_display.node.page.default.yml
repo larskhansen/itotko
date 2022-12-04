@@ -1,4 +1,4 @@
-uuid: 0d054e54-b101-4a75-b4aa-cc2f504f94ba
+uuid: dbeb1267-2ede-4618-8a37-44ac6176da49
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - path
     - text
 _core:
-  default_config_hash: KSvzyFhdLuxniTsunUnUfpfMmod2l57GibtVjL8ymHM
+  default_config_hash: SfpLhPExzvR0MgFp0Wp7CrmgEnhcqQ-fXIWFhbf4ue0
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -46,7 +46,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 121
+    weight: 120
     region: content
     settings:
       display_label: true

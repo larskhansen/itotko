@@ -1,4 +1,4 @@
-uuid: a342b467-6894-4fbc-8493-1a048dea5ee7
+uuid: ab7d982f-3dd0-4074-9910-b2576fa69be0
 langcode: en
 status: false
 dependencies:
@@ -9,11 +9,11 @@ dependencies:
   theme:
     - itotko
 _core:
-  default_config_hash: DweBpscQZdG0-fHkSpUzdYucrNH45G_KF7Z82V-oyQM
+  default_config_hash: Hef3knS3li_7vO60r8kuA9mhlha4qt0IL3_56YHeGEY
 id: itotko_account_menu
 theme: itotko
-region: header
-weight: 0
+region: nav_additional
+weight: -7
 provider: null
 plugin: 'system_menu_block:account'
 settings:
@@ -22,6 +22,6 @@ settings:
   label_display: '0'
   provider: system
   level: 1
-  depth: 1
+  depth: 0
   expand_all_items: false
 visibility: {  }

@@ -1,14 +1,14 @@
 _core:
-  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
-uuid: 4179b8b2-88a2-4701-8068-53cc23be3062
+uuid: 3a7a867c-11a0-487d-af08-f457189affbb
 name: ITOTKO
 mail: info@itotko.dk
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /node/7
+  front: /node/1
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

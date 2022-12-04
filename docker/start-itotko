@@ -27,8 +27,6 @@ cd /var/www || return
 
 vendor/bin/drush status
 
-vendor/bin/drush then -y bootstrap5
-
 vendor/bin/drush status
 
 # Update the database.

@@ -1,15 +1,15 @@
-uuid: 1f125024-d34a-40ef-9172-f7253d8cafc3
+uuid: 64ecc154-e571-4df1-8a62-92cfa9b6fb5c
 langcode: en
 status: true
 dependencies:
   theme:
     - itotko
 _core:
-  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+  default_config_hash: ZEYYdN4HDiotgpUT73lugTp-sDGdEj3bL__5PooUIbo
 id: itotko_local_actions
 theme: itotko
 region: content
-weight: -4
+weight: -2
 provider: null
 plugin: local_actions_block
 settings:

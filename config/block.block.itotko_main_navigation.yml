@@ -1,0 +1,27 @@
+uuid: 73b3ebbf-999a-4be0-9838-a40beace4c18
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - itotko
+_core:
+  default_config_hash: gB7CqtMYiHyDQMVsGmsGDpYQsvNy7UrUBGfxKuxUa1g
+id: itotko_main_navigation
+theme: itotko
+region: nav_main
+weight: -5
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

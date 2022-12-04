@@ -1,4 +1,4 @@
-uuid: 9f85c9ce-36d0-400e-adbf-f6c2b4adf717
+uuid: af3d009a-7189-46bd-a8f3-868edd6ac708
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,9 @@ dependencies:
     - image.style.thumbnail
   module:
     - image
-    - path
     - user
 _core:
-  default_config_hash: LLAieeozVsoZDb-2PbFxRJpQqnKmpR7-4OoRJnduz-U
+  default_config_hash: FaQ9Ptcpxpg30AtiqRDtl_8zbJArHP1LPfug_s59TOA
 id: user.user.default
 targetEntityType: user
 bundle: user
@@ -19,34 +18,12 @@ content:
   account:
     weight: -10
     region: content
-    settings: {  }
-    third_party_settings: {  }
   contact:
     weight: 5
     region: content
-    settings: {  }
-    third_party_settings: {  }
   language:
     weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
-  matomo:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  piwik:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   timezone:
     weight: 6
     region: content

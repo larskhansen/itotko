@@ -1,0 +1,8 @@
+uuid: 52a69cb7-3e59-4cd4-af2d-b4788ea73cd8
+langcode: en
+status: true
+dependencies: {  }
+id: itotko-main-menu
+label: 'Itotko main menu'
+description: ''
+locked: false

@@ -1,22 +1,22 @@
-uuid: 7ae1d3c5-e84d-43d4-b074-c9201a72d30d
+uuid: 1b09c39c-f54d-4704-ad97-10f3bdfca60c
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - system
   theme:
     - itotko
 _core:
-  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+  default_config_hash: dlGimg8fMTEZZlKvOSgNN8jMXtjoW2ciqMjLIItM5Q0
 id: itotko_messages
 theme: itotko
-region: header
-weight: 3
+region: content
+weight: -7
 provider: null
 plugin: system_messages_block
 settings:
   id: system_messages_block
-  label: 'Status messages'
+  label: Messages
   label_display: '0'
   provider: system
 visibility: {  }
