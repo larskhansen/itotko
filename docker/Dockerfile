@@ -1,6 +1,6 @@
 FROM composer:2
 
-FROM php:8.1 as builder
+FROM php:8.1-apache as builder
 
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
@@ -41,7 +41,7 @@ RUN npm --prefix contrib/bootstrap5 install && \
     sass custom/itotko_theme/scss/style.scss custom/itotko_theme/css/style.css
 
 # Now to the actual docker image
-FROM php:8.1
+FROM php:8.1-apache
 
 # No need to build it again, just copy it.
 COPY --from=script-builder /var/www /var/www
