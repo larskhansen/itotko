@@ -93,10 +93,10 @@ RUN { \
 
 # Setup Apache remoteip
 RUN { \ 
-		echo 'RemoteIPHeader CF-Connecting-IP' \
-		echo 'RemoteIPInternalProxy 172.17.0.1' \
-		echo 'RemoteIPTrustedProxy 172.17.0.0/20' \
-		echo 'RemoteIPHeader X-Real-IP' \
+		echo 'RemoteIPHeader CF-Connecting-IP'; \
+		echo 'RemoteIPInternalProxy 172.17.0.1'; \
+		echo 'RemoteIPTrustedProxy 172.17.0.0/20'; \
+		echo 'RemoteIPHeader X-Real-IP'; \
 	} > /etc/apache2/mods-available/remoteip.conf
 
 # Changing the apache_document_root to remove the unused html folder.
