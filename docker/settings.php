@@ -346,7 +346,7 @@ $settings['reverse_proxy'] = TRUE;
  * Specify every reverse proxy IP address in your environment.
  * This setting is required if $settings['reverse_proxy'] is TRUE.
  */
-$settings['reverse_proxy_addresses'] = ['172.17.0.0'];
+$settings['reverse_proxy_addresses'] = ['172.17.0.0', '172.17.0.1'];
 
 /**
  * Reverse proxy trusted headers.
