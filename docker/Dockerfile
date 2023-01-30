@@ -43,6 +43,9 @@ RUN npm --prefix contrib/bootstrap5 install && \
 # Now to the actual docker image
 FROM php:8.1-apache
 
+# Enable the production settings of the  php ini.
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
 # No need to build it again, just copy it.
 COPY --from=script-builder /var/www /var/www
 
@@ -76,10 +79,13 @@ RUN apt-get update && apt-get install -y \
     && apt-get autoremove -y
 
 RUN { \
-		echo 'opcache.memory_consumption=128'; \
-		echo 'opcache.interned_strings_buffer=8'; \
-		echo 'opcache.max_accelerated_files=4000'; \
-		echo 'opcache.revalidate_freq=60'; \
+		echo 'opcache.enable=1'; \
+		echo 'opcache.memory_consumption=192'; \
+		echo 'opcache.interned_strings_buffer=16'; \
+		echo 'opcache.max_accelerated_files=10000'; \
+		echo 'opcache.revalidate_freq=0'; \
+		echo 'opcache.validate_timestamp=1'; \
+		echo 'opcache.max_wasted_percentage=10'; \
 		echo 'opcache.fast_shutdown=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
