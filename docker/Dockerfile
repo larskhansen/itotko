@@ -91,7 +91,7 @@ RUN { \
 
 # Changing the apache_document_root to remove the unused html folder.
 RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available/000-default.conf \
-    && a2enmod rewrite \
+    && a2enmod rewrite mod_remoteip \
     && rm -rf /var/www/html \
     && chown -Rf www-data:www-data /var/www/web
 
