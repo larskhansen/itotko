@@ -71,6 +71,7 @@ RUN apt-get update && apt-get install -y \
         libmemcached-dev \
         zlib1g-dev \
         libzip-dev \
+	libapache2-mod-remoteip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql zip opcache \
     && pecl install memcached-3.1.5 \
@@ -78,6 +79,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -y
 
+# Setup Opcache
 RUN { \
 		echo 'opcache.enable=1'; \
 		echo 'opcache.memory_consumption=192'; \
@@ -91,9 +93,15 @@ RUN { \
 
 # Changing the apache_document_root to remove the unused html folder.
 RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available/000-default.conf \
-    && a2enmod rewrite \
+    && a2enmod rewrite remoteip \
     && rm -rf /var/www/html \
     && chown -Rf www-data:www-data /var/www/web
+
+# Setup Apache remoteip
+RUN { \ 
+		echo 'RemoteIPInternalProxy A.B.C.D' \
+		echo 'RemoteIPHeader X-Real-IP' \
+	} > /etc/apache2/mods-available/remoteip.conf
 
 # The settings.php file does not and MUST NOT have the sensitive db settings.
 # This will be filled in via Environment variables in the startup script.
