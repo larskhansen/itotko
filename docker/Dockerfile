@@ -78,14 +78,6 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -y
 
-opcache.revalidate_freq=0
-opcache.validate_timestamps=1
-opcache.max_accelerated_files=10000
-opcache.memory_consumption=192
-opcache.max_wasted_percentage=10
-opcache.interned_strings_buffer=16
-opcache.fast_shutdown=1
-
 RUN { \
 		echo 'opcache.enable=1'; \
 		echo 'opcache.memory_consumption=192'; \
