@@ -22,6 +22,8 @@ sed -i "s|@DB@|$DB|" /var/www/web/sites/default/settings.php
 # Insert the host for the database settings into settings.php.
 sed -i "s|@HOST@|$HOST|" /var/www/web/sites/default/settings.php
 
+chmod 444 /var/www/web/sites/default/settings.php
+
 # Just to make sure were at the root.
 cd /var/www || return
 
