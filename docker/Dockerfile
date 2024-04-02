@@ -115,5 +115,7 @@ ADD docker/start-itotko /usr/local/bin/
 # Set the working directory.
 WORKDIR /var/www
 
+USER www-data
+
 # Gentlemen, start your engines...
 CMD ["start-itotko"]
