@@ -63,18 +63,21 @@ ENV USERNAME=username \
 
 
 # Installing gd, memcached, pdo_mysql, zip and opcache.
-RUN apt-get update && apt-get install -y \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libpng-dev \
-        mariadb-client \
-        libmemcached-dev \
-        zlib1g-dev \
-        libzip-dev \
-	libapache2-mod-rpaf \
+RUN apt-get update \
+    && apt-get install -y \
+       libfreetype6-dev \
+       libjpeg62-turbo-dev \
+       libpng-dev \
+       mariadb-client \
+       libevent-dev \
+       libmemcached-dev \
+       zlib1g-dev \
+       libzip-dev \
+       libapache2-mod-rpaf \
+       libssl-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql zip opcache \
-    && pecl install memcached-3.1.5 \
+    && pecl install memcached-3.2.0 \
     && docker-php-ext-enable memcached \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -y
