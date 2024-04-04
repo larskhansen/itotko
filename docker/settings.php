@@ -799,23 +799,23 @@ $settings['config_sync_directory'] = '../config';
    
    
 $settings['memcache_storage']['memcached_servers'] = [
-  '@MEMCACHED_SERVER@:11211' => 'default',
+  getenv('MEMCACHED_URL') . ':11211' => 'default',
 ];
  
 $databases['default']['default'] = array (
-  'database' => '@DB@',
-  'username' => '@USERNAME@',
-  'password' => '@PASSWORD@',
+  'database' => getenv('DB'),
+  'username' => getenv('USERNAME'),
+  'password' => getenv('PASSWORD'),
   'prefix' => '',  
-  'host' => '@HOST@',
+  'host' => getenv('HOST'),
   'port' => '3306',
   'driver' => 'mysql',
 ); 
  
    
 $settings['trusted_host_patterns'] = array(
-  '^@WWWDOMAINNAME@$',
-  '^@DOMAINNAME@$',
+  '^' . getenv('WWWDOMAINNAME'),
+  '^' . getenv('DOMAINNAME'),
   '^localhost$'
 );
  

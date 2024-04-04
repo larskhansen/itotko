@@ -112,13 +112,12 @@ RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available
 # This will be filled in via Environment variables in the startup script.
 ADD --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/settings.php
 
-# The startup script, this also starts the apache_foreground script.
-ADD docker/start-itotko /usr/local/bin/
-
 # Set the working directory.
 WORKDIR /var/www
 
-USER www-data
+RUN vendor/bin/drush status \
+ && vendor/bin/drush updb -y \
+ && vendor/bin/drush cim -y \
+ && vendor/bin/drush cr
 
-# Gentlemen, start your engines...
-CMD ["start-itotko"]
+USER www-data
