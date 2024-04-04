@@ -115,9 +115,4 @@ ADD --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/set
 # Set the working directory.
 WORKDIR /var/www
 
-RUN vendor/bin/drush status \
- && vendor/bin/drush updb -y \
- && vendor/bin/drush cim -y \
- && vendor/bin/drush cr
-
 USER www-data
