@@ -114,5 +114,3 @@ ADD --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/set
 
 # Set the working directory.
 WORKDIR /var/www
-
-USER www-data
