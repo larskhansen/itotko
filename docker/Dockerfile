@@ -47,7 +47,7 @@ FROM php:8.1-apache
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # No need to build it again, just copy it.
-COPY --from=script-builder /var/www /var/www
+COPY --chown www-data:www-data --from=script-builder /var/www /var/www
 
 # Environment used for the database.
 ENV USERNAME=username \
@@ -111,6 +111,8 @@ RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available
 # The settings.php file does not and MUST NOT have the sensitive db settings.
 # This will be filled in via Environment variables in the startup script.
 ADD --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/settings.php
+
+USER www-data
 
 # Set the working directory.
 WORKDIR /var/www
