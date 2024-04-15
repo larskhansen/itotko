@@ -116,5 +116,7 @@ ADD --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/set
 
 USER www-data
 
+EXPOSE 8080
+
 # Set the working directory.
 WORKDIR /var/www
