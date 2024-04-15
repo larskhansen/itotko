@@ -104,11 +104,9 @@ RUN { \
 
 # Changing the apache_document_root to remove the unused html folder.
 RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available/000-default.conf \
-    && sed -i "s|*:80>|*:8080>|" /etc/apache2/sites-available/000-default.conf \
-    && sed -i "1Listen 8080\n" /etc/apache2/ports.conf \
-RUN more /etc/apache2/ports.conf
-RUN more /etc/apache2/sites-available/000-default.conf
-RUN a2enmod rewrite remoteip \
+    && sed -i "s|\*:80>|\*:8080>|" /etc/apache2/sites-available/000-default.conf \
+    && sed -i '1 i\Listen 8080' /etc/apache2/ports.conf \
+    && a2enmod rewrite remoteip \
     && rm -rf /var/www/html \
     && chown -Rf www-data:www-data /var/www/web
 
