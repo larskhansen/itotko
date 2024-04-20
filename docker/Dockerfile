@@ -47,7 +47,7 @@ FROM php:8.1-apache
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # No need to build it again, just copy it.
-COPY --from=script-builder /var/www /var/www
+COPY --chown=www-data:www-data --from=script-builder /var/www /var/www
 
 # Environment used for the database.
 ENV USERNAME=username \
@@ -63,18 +63,21 @@ ENV USERNAME=username \
 
 
 # Installing gd, memcached, pdo_mysql, zip and opcache.
-RUN apt-get update && apt-get install -y \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libpng-dev \
-        mariadb-client \
-        libmemcached-dev \
-        zlib1g-dev \
-        libzip-dev \
-	libapache2-mod-rpaf \
+RUN apt-get update \
+    && apt-get install -y \
+       libfreetype6-dev \
+       libjpeg62-turbo-dev \
+       libpng-dev \
+       mariadb-client \
+       libevent-dev \
+       libmemcached-dev \
+       zlib1g-dev \
+       libzip-dev \
+       libapache2-mod-rpaf \
+       libssl-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql zip opcache \
-    && pecl install memcached-3.1.5 \
+    && pecl install memcached-3.2.0 \
     && docker-php-ext-enable memcached \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -y
@@ -101,6 +104,9 @@ RUN { \
 
 # Changing the apache_document_root to remove the unused html folder.
 RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available/000-default.conf \
+    && sed -i "s|\*:80>|\*:8080>|" /etc/apache2/sites-available/000-default.conf \
+    && sed -i '/Listen 80/d' /etc/apache2/ports.conf \
+    && sed -i '1 i\Listen 8080' /etc/apache2/ports.conf \
     && a2enmod rewrite remoteip \
     && rm -rf /var/www/html \
     && chown -Rf www-data:www-data /var/www/web
@@ -109,11 +115,9 @@ RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available
 # This will be filled in via Environment variables in the startup script.
 ADD --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/settings.php
 
-# The startup script, this also starts the apache_foreground script.
-ADD docker/start-itotko /usr/local/bin/
+USER www-data
+
+EXPOSE 8080
 
 # Set the working directory.
 WORKDIR /var/www
-
-# Gentlemen, start your engines...
-CMD ["start-itotko"]
