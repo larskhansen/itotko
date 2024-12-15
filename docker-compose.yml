@@ -1,0 +1,41 @@
+services:
+  www:
+    build:
+      dockerfile: docker/Dockerfile
+    environment:
+      USERNAME: itotko
+      PASSWORD: passwordforitotko
+      HOST: db
+      DB: itotko
+      PORT: 3306
+      DOMAINNAME: itotko.dk
+      WWWDOMAINNAME: www.itotko.dk
+      APACHE_DOCUMENT_ROOT: /var/www/web
+      MEMCACHED_SERVER: memcached
+      STARTUP: drupal
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
+      memcached:
+        condition: service_started
+  db:
+    image: mariadb:10
+    restart: always
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    environment:
+      MARIADB_ROOT_PASSWORD: rootitotko
+      MARIADB_USER: itotko
+      MARIADB_PASSWORD: passwordforitotko
+      MARIADB_DATABASE: itotko
+  memcached:
+    image: memcached:1.6.33
