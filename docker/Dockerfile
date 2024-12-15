@@ -26,7 +26,7 @@ USER www-data
 ADD composer.json .
 ADD config/ ./config/
 
-# Instailling it.
+# Installing it.
 RUN composer update --no-cache
 
 # Building the style sheet and installing plugins for bootstrap5.
@@ -95,7 +95,7 @@ RUN { \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 # Setup Apache remoteip
-RUN { \ 
+RUN { \
 		echo 'RemoteIPHeader CF-Connecting-IP'; \
 		echo 'RemoteIPInternalProxy 172.17.0.1'; \
 		echo 'RemoteIPTrustedProxy 172.17.0.0/20'; \
