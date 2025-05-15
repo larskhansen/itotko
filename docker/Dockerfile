@@ -1,6 +1,6 @@
-FROM composer:2
+FROM composer:2 AS composer
 
-FROM php:8.1-apache as builder
+FROM php:8.1-apache AS builder
 
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
@@ -9,7 +9,7 @@ WORKDIR /var/www
 # We need the gd and zip for composer install
 RUN apt-get update && \
     apt-get install -y --no-install-recommends git libfreetype6-dev \
-    libjpeg62-turbo-dev libpng-dev zlib1g-dev zip unzip libzip-dev
+    libjpeg62-turbo-dev libpng-dev libzip-dev unzip zip zlib1g-dev
 
 # GD is required for Drupal 8
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -23,14 +23,14 @@ RUN chown -Rf www-data:www-data /var/www
 USER www-data
 
 # We need the recipe for the site.
-ADD composer.json .
-ADD config/ ./config/
+COPY composer.json .
+COPY config/ ./config/
 
 # Installing it.
 RUN composer update --no-cache
 
 # Building the style sheet and installing plugins for bootstrap5.
-FROM node:17.9 as script-builder
+FROM node:17.9 AS script-builder
 
 COPY --from=builder /var/www /var/www
 
@@ -49,6 +49,8 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 # No need to build it again, just copy it.
 COPY --chown=www-data:www-data --from=script-builder /var/www /var/www
 
+COPY --from=composer /usr/bin/composer /usr/local/bin/composer
+
 # Environment used for the database.
 ENV USERNAME=username \
     PASSWORD=password \
@@ -65,16 +67,17 @@ ENV USERNAME=username \
 # Installing gd, memcached, pdo_mysql, zip and opcache.
 RUN apt-get update \
     && apt-get install -y \
+       libapache2-mod-rpaf \
+       libevent-dev \
        libfreetype6-dev \
        libjpeg62-turbo-dev \
-       libpng-dev \
-       mariadb-client \
-       libevent-dev \
        libmemcached-dev \
-       zlib1g-dev \
-       libzip-dev \
-       libapache2-mod-rpaf \
+       libpng-dev \
        libssl-dev \
+       libzip-dev \
+       mariadb-client \
+       zlib1g-dev \
+       nano \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql zip opcache \
     && pecl install memcached-3.2.0 \
@@ -113,7 +116,7 @@ RUN sed -i "s|/var/www/html|$APACHE_DOCUMENT_ROOT|" /etc/apache2/sites-available
 
 # The settings.php file does not and MUST NOT have the sensitive db settings.
 # This will be filled in via Environment variables in the startup script.
-ADD --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/settings.php
+COPY --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/settings.php
 
 USER www-data
 

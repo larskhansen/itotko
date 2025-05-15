@@ -2,13 +2,10 @@ uuid: 4f82c005-3a46-45c7-bbc4-eaec39905a83
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
   module:
     - comment
     - contact
     - eu_cookie_compliance
-    - filter
     - search
     - system
 _core:
@@ -23,4 +20,3 @@ permissions:
   - 'access site-wide contact form'
   - 'display eu cookie compliance popup'
   - 'search content'
-  - 'use text format restricted_html'

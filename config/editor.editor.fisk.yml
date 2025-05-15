@@ -1,0 +1,26 @@
+uuid: 1376d3ca-f75e-46b7-b0e7-d6cd8ee07f80
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.fisk
+  module:
+    - ckeditor5
+format: fisk
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - heading
+      - bold
+      - italic
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+image_upload:
+  status: false

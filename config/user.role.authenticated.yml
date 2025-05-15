@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - filter.format.fisk
   module:
     - comment
     - contact
+    - file
     - filter
     - matomo
     - search
@@ -23,8 +25,10 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'delete own files'
   - 'opt-in or out of matomo tracking'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
+  - 'use text format fisk'

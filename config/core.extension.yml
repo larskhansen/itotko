@@ -8,7 +8,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
-  ckeditor: 0
+  ckeditor5: 0
   comment: 0
   config: 0
   contact: 0
@@ -35,7 +35,7 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
-  rdf: 0
+  phpass: 0
   search: 0
   shortcut: 0
   system: 0
@@ -54,8 +54,6 @@ module:
 theme:
   olivero: 0
   claro: 0
-  stable: 0
-  classy: 0
   bootstrap5: 0
-  itotko: 0
+  stable9: 0
 profile: standard

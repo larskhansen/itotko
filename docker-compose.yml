@@ -13,6 +13,8 @@ services:
       APACHE_DOCUMENT_ROOT: /var/www/web
       MEMCACHED_SERVER: memcached
       STARTUP: drupal
+    volumes:
+      - ./config:/var/www/config
     ports:
       - "8080:8080"
     depends_on:
