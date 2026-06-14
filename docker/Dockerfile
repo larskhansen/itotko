@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream
-FROM composer:2.8
-=======
 ############################################################
 # 1. COMPOSER STAGE - Install Drupal dependencies
 ############################################################
 FROM composer:2 AS composer
->>>>>>> Stashed changes
 
 FROM php:8.3-apache AS builder
 
@@ -19,7 +15,6 @@ RUN apt-get update && \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
  && docker-php-ext-install gd
 
-<<<<<<< Updated upstream
 # Zip is for composer.
 RUN docker-php-ext-configure zip \
     && docker-php-ext-install zip
