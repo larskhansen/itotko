@@ -19,6 +19,7 @@
         }
     ],
     "require": {
+<<<<<<< Updated upstream
         "composer/installers": "^2.3",
         "drupal/admin_toolbar": "^3.6.3",
         "drupal/bootstrap5": "^3.0.16",
@@ -29,6 +30,19 @@
         "drupal/matomo": "^1.26",
         "drupal/memcache": "^2.8",
         "drush/drush": "^12",
+=======
+        "composer/installers": "^v2.3.0",
+        "drupal/admin_toolbar": "^3",
+        "drupal/core-composer-scaffold": "^11.3.11",
+        "drupal/core-project-message": "^11.3.11",
+        "drupal/core-recommended": "^11.3.11",
+        "drupal/eu_cookie_compliance": "^1.25",
+        "drupal/matomo": "^1.23",
+        "drupal/memcache": "^2.7",
+        "drupal/pathauto": "^1.13",
+        "drupal/token": "^1.15",
+        "drush/drush": "^13.7.3",
+>>>>>>> Stashed changes
         "larskhansen/itotko_theme": "dev-master"
     },
     "conflict": {
@@ -43,7 +57,12 @@
             "drupal/core-project-message": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "policy": {
+            "advisories": {
+                "block": false
+            }
+        }
     },
     "extra": {
         "drupal-scaffold": {
@@ -101,5 +120,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/upgrade_status": "^4.3"
     }
 }

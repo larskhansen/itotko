@@ -10,7 +10,7 @@ services:
       PORT: 3306
       DOMAINNAME: itotko.dk
       WWWDOMAINNAME: www.itotko.dk
-      APACHE_DOCUMENT_ROOT: /var/www/web
+      APACHE_DOCUMENT_ROOT: /var/www/html
       MEMCACHED_SERVER: memcached
       STARTUP: drupal
     volumes:
