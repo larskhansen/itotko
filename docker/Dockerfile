@@ -25,7 +25,7 @@ RUN composer install \
   --no-interaction \
   --optimize-autoloader
 
-RUN ls -hal /app
+RUN ls -hal /app/web
 
 ############################################################
 # 2. NODE STAGE - Build Bootstrap theme assets
@@ -35,7 +35,7 @@ FROM node:24 AS theme-builder
 WORKDIR /theme
 
 # Copy only package files first (better caching)
-COPY --from=builder web/themes/custom/itotko_theme/package*.json ./
+COPY --from=builder /app/web/themes/custom/itotko_theme/package*.json ./
 
 RUN npm ci
 
