@@ -34,7 +34,7 @@ FROM node:24 AS theme-builder
 WORKDIR /theme
 
 # Copy only package files first (better caching)
-COPY web/themes/custom/itotko_theme/package*.json ./
+COPY --from=builder /app/web/themes/custom/itotko_theme ./
 
 RUN npm ci
 
