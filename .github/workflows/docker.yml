@@ -1,4 +1,4 @@
-name: Build and Push Itotko Image
+name: Build and Push Itotko image
 
 on:
   push:
