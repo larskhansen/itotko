@@ -34,12 +34,12 @@ FROM node:24 AS theme-builder
 WORKDIR /theme
 
 # Copy only package files first (better caching)
-COPY --from=builder /app/web/themes/custom/itotko_theme ./
+COPY web/themes/custom/itotko_theme/package*.json ./
 
 RUN npm ci
 
 # Copy full theme source
-COPY web/themes/custom/itotko_theme ./
+COPY --from=builder /app/web/themes/custom/itotko_theme ./
 
 # Build assets (SCSS/JS → dist/)
 RUN npm run build
