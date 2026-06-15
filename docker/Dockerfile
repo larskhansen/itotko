@@ -25,6 +25,7 @@ RUN composer install \
   --no-interaction \
   --optimize-autoloader
 
+RUN ls -hal /app
 
 ############################################################
 # 2. NODE STAGE - Build Bootstrap theme assets
@@ -44,7 +45,6 @@ COPY --from=builder /app/web/themes/custom/itotko_theme ./
 # Build assets (SCSS/JS → dist/)
 RUN npm run build
 
-
 ############################################################
 # 3. RUNTIME STAGE - Apache + PHP + Drupal 11
 ############################################################
@@ -53,7 +53,7 @@ FROM php:8.3-apache AS runtime
 WORKDIR /var/www/html
 
 ############################################################
-# System dependencies for Drupal
+# System dependencies for Drupal AND Apache: run on port 8080
 ############################################################
 RUN apt-get update && apt-get install -y \
     git unzip \
@@ -65,12 +65,8 @@ RUN apt-get update && apt-get install -y \
         zip \
         gd \
         intl \
-    && a2enmod rewrite
-
-############################################################
-# Apache: run on port 8080
-############################################################
-RUN sed -i 's/80/8080/g' /etc/apache2/ports.conf
+    && a2enmod rewrite \
+    && sed -i 's/80/8080/g' /etc/apache2/ports.conf
 
 COPY docker/drupal.conf /etc/apache2/sites-available/000-default.conf
 
