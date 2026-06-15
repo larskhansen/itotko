@@ -43,7 +43,7 @@ RUN npm ci
 COPY --from=builder /app/web/themes/custom/itotko_theme ./
 
 # Build assets (SCSS/JS → dist/)
-RUN ls -hal /theme && npm --prefix /theme/web/themes/custom/itotko_theme run build
+RUN ls -hal /theme && pwd && npm run build
 
 ############################################################
 # 3. RUNTIME STAGE - Apache + PHP + Drupal 11
