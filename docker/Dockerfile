@@ -81,7 +81,7 @@ COPY --from=theme-builder /theme/css /var/www/html/web/themes/custom/itoto_theme
 ############################################################
 # Copy settings.php file for Drupal setup
 ############################################################
-COPY --chown=www-data:www-data docker/settings.php /var/www/web/sites/default/settings.php
+COPY --chown=www-data:www-data docker/settings.php /var/www/html/web/sites/default/settings.php
 
 ############################################################
 # Permissions (CRITICAL for Drupal)
