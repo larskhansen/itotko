@@ -25,8 +25,6 @@ RUN composer install \
   --no-interaction \
   --optimize-autoloader
 
-RUN ls -hal /app/web
-
 ############################################################
 # 2. NODE STAGE - Build Bootstrap theme assets
 ############################################################
@@ -43,7 +41,7 @@ RUN npm ci
 COPY --from=builder /app/web/themes/custom/itotko_theme ./
 
 # Build assets (SCSS/JS → dist/)
-RUN pwd && ls -hal && more package.json && npm run build
+RUN npm run build
 
 ############################################################
 # 3. RUNTIME STAGE - Apache + PHP + Drupal 11
