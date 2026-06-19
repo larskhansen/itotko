@@ -2562,12 +2562,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larskhansen/itotko_theme.git",
-                "reference": "68a9eca7ed0d0dc64a4ac2e350e256b62824c686"
+                "reference": "7e6acddf1f65fea707d22fe78abd0c81016966f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larskhansen/itotko_theme/zipball/68a9eca7ed0d0dc64a4ac2e350e256b62824c686",
-                "reference": "68a9eca7ed0d0dc64a4ac2e350e256b62824c686",
+                "url": "https://api.github.com/repos/larskhansen/itotko_theme/zipball/7e6acddf1f65fea707d22fe78abd0c81016966f1",
+                "reference": "7e6acddf1f65fea707d22fe78abd0c81016966f1",
                 "shasum": ""
             },
             "default-branch": true,
@@ -2591,7 +2591,7 @@
                 "source": "https://github.com/larskhansen/itotko_theme/tree/master",
                 "issues": "https://github.com/larskhansen/itotko_theme/issues"
             },
-            "time": "2026-06-18T06:04:42+00:00"
+            "time": "2026-06-19T17:56:29+00:00"
         },
         {
             "name": "league/container",
