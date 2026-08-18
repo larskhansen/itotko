@@ -40,7 +40,7 @@ RUN npm ci
 # Copy full theme source
 COPY --from=builder /app/web/themes/custom/itotko_theme ./
 
-# Build assets (SCSS/JS → dist/)
+# Build assets (SCSS/JS → css/)
 RUN npm run build
 
 ############################################################
@@ -76,7 +76,7 @@ COPY --from=builder /app /var/www/html
 ############################################################
 # Copy built theme assets
 ############################################################
-COPY --from=theme-builder /theme/css /var/www/html/web/themes/custom/itoto_theme/css
+COPY --from=theme-builder /theme/css /var/www/html/web/themes/custom/itotko_theme/css
 
 ############################################################
 # Copy settings.php file for Drupal setup
@@ -89,7 +89,7 @@ COPY --chown=www-data:www-data docker/settings.php /var/www/html/web/sites/defau
 RUN chown -R www-data:www-data /var/www/html \
  && mkdir -p /var/www/html/web/sites/default/files \
  && chown -R www-data:www-data /var/www/html/web/sites/default/files \
- && chmod -R 775 /var/www/html/web/sites/default/files
+ && chmod -R 777 /var/www/html/web/sites/default/files
 
 ############################################################
 # Runtime user
